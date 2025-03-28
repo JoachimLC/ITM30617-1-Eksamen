@@ -1,6 +1,6 @@
 export default {
     name: 'logItem',
-    title: 'Loggoppføring',
+    title: 'Loggføring',
     type: 'document',
     fields: [
       {

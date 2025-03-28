@@ -1,40 +1,21 @@
 import './App.css'
-import { getAllGroupMembers } from './sanity/service'
-import { useState, useEffect } from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MemberPage from './pages/memberpage';
+import FrontPage from './pages/frontpage';
+import Layout from './components/Layout';
 
 function App() {
-  const [GroupMembers, setGroupMembers] = useState([])
-
-
-  const FetchGroupMembers = async () => {
-    const FetchedMembers = await getAllGroupMembers();
-    setGroupMembers(FetchedMembers);
-  }
-
-  useEffect(() => {
-    FetchGroupMembers();
-}, [])
-
-  console.log(GroupMembers)
-
   return (
-    <section>
-    <h1>Handleliste</h1>
-    <ul>
-      <li>
-        <div className="vare heading">Vare</div>
-        <div className="mengde heading">Mengde</div>
-      </li>
-      {GroupMembers.map((member) => (
-        <li>
-          <div className="vare">{member.navn}</div>
-          <div className="mengde">{member.biography}</div>
-          </li>
-        )
-      )}
-    </ul>
-    </section>
-  )
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<FrontPage />} />
+          <Route path="/member/:id" element={<MemberPage />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
 }
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 export default {
     name: 'groupMember',
-    title: 'Gruppe Medlem',
+    title: 'Gruppemedlem',
     type: 'document',
     fields: [
       {
@@ -30,7 +30,7 @@ export default {
         type: 'text'
       },
       {
-        name: 'logs',
+        name: 'log',
         title: 'Loggføringer',
         type: 'array',
         of: [{type: 'reference', to: [{type: 'logItem'}]}]

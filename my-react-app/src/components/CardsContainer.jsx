@@ -7,12 +7,14 @@ const CardsContainer = ({ groupMembers }) => {
     <div className="cards-container">
       {groupMembers.map((member) => (
         <Card 
-          key={member._id}
-          image={urlFor(member.image).width(300).url()}
-          name={member.name} 
-          email={member.email} 
+            key={member._id}
+            id={member._id}
+            image={urlFor(member.image).width(300).url()}
+            name={member.name} 
+            email={member.email} 
         />
       ))}
+      
     </div>
   );
 };

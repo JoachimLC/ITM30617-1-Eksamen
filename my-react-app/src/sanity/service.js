@@ -22,6 +22,7 @@ export const getAllGroupMembers = async () => {
     return members;
   };
   
+  
 
 
 
@@ -34,11 +35,12 @@ export const getGroupMemberById = async (id) => {
         image,
         interests,
         biography,
-        logs[]{
+        "log": log[]->{
           _id,
           date,
           action,
-          hoursSpent
+          hoursSpent,
+          "member": member->name
         }
       }`,
       { id }

@@ -14,14 +14,14 @@ export default function Layout({ children }) {
   }, []);
 
   return (
-    <div>
-      <main id="main">
-        <h1>Team Joachim</h1>
-        <Nav groupMembers={groupMembers} />
-        <section id="wrapper" className="wrapper">
-          {children}
-        </section>
-      </main>
-    </div>
+    <>
+    <header className="layout">
+      <h1>Team Joachim</h1>
+      <Nav groupMembers={groupMembers} />
+    </header>
+    <main>
+        {children}
+    </main>
+    </>
   );
 }

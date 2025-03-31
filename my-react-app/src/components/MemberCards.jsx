@@ -2,9 +2,12 @@ import React from 'react';
 import Card from './card';
 import { urlFor } from '../sanity/service';
 
-const CardsContainer = ({ groupMembers }) => {
+const MemberCards = ({ groupMembers }) => {
   return (
-    <div className="cards-container">
+    <>
+    <h1>Gruppemedlemmer</h1>
+    <div className="membercards">
+  
       {groupMembers.map((member) => (
         <Card 
             key={member._id}
@@ -16,7 +19,8 @@ const CardsContainer = ({ groupMembers }) => {
       ))}
       
     </div>
+    </>
   );
 };
 
-export default CardsContainer;
+export default MemberCards;

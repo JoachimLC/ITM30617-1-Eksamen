@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllGroupMembers } from '../sanity/service';
-import CardsContainer from '../components/CardsContainer';
-import AllUsersLog from '../components/AllUsersLog';
+import MemberCards from '../components/MemberCards';
+import WorkLog from '../components/WorkLog';
 
 const FrontPage = () => {
   const [groupMembers, setGroupMembers] = useState([]);
@@ -16,13 +16,10 @@ const FrontPage = () => {
   }, []);
 
   return (
-    <div className="cards-page">
-      <h1>Gruppemedlemmer</h1>
-      <CardsContainer groupMembers={groupMembers}/>
-      <h1>Arbeidslogg</h1>
-      <AllUsersLog groupMembers={groupMembers}/>
-
-    </div>
+    <section>
+      <MemberCards groupMembers={groupMembers}/>
+      <WorkLog groupMembers={groupMembers}/>
+    </section>
   );
 };
 

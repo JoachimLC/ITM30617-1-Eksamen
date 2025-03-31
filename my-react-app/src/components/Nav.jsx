@@ -6,7 +6,7 @@ export default function Nav({ groupMembers }) {
     <header>
       <nav>
         <ul>
-          <li><NavLink to={`/`}> Hjem</NavLink></li>
+          <li><NavLink to={`/`}>Hjem</NavLink></li>
           {groupMembers.map((member) => (
             <li key={member._id}>
               <NavLink to={`/member/${member._id}`}>

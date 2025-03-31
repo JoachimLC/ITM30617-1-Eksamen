@@ -1,4 +1,4 @@
-import './styles.css';
+import './styles.scss';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MemberPage from './pages/MemberPage';

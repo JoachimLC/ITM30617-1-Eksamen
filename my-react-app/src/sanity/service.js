@@ -22,10 +22,6 @@ export const getAllGroupMembers = async () => {
     return members;
   };
   
-  
-
-
-
 export const getGroupMemberById = async (id) => {
     const member = await client.fetch(
       `*[_type == "groupMember" && _id == $id][0]{
@@ -47,6 +43,36 @@ export const getGroupMemberById = async (id) => {
     );
     return member;
   };
+
+export const getAllLogs = async () => {
+  const query = `
+    *[_type == "logItem"]{
+      _id,
+      date,
+      action,
+      hoursSpent,
+      "memberName": member->name,
+      "memberId": member->_id
+    } | order(date desc)
+  `;
+  return await client.fetch(query);
+};
+
+export const getLogsByMemberId = async (memberId) => {
+  const query = `
+    *[_type == "logItem" && member._ref == $memberId]{
+      _id,
+      date,
+      action,
+      hoursSpent,
+      "memberName": member->name,
+      "memberId": member->_id
+    } | order(date desc)
+  `;
+  return await client.fetch(query, { memberId });
+};
+
+
 
 const builder = imageUrlBuilder(client);
 

@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getGroupMemberById } from '../sanity/service';
+import { getGroupMemberById, getLogsByMemberId } from '../sanity/service';
 import MemberDetails from '../components/MemberDetails';
 import WorkLog from '../components/WorkLog';
 
 const MemberPage = () => {
   const { id } = useParams(); 
   const [member, setMember] = useState(null);
+  const [logs, setLogs] = useState([]);
 
   useEffect(() => {
-    const fetchMember = async () => {
-        const fetchedMember = await getGroupMemberById(id);
-        setMember(fetchedMember);
+    const fetchData = async () => {
+      const [fetchedMember, fetchedLogs] = await Promise.all([
+        getGroupMemberById(id),
+        getLogsByMemberId(id)
+      ]);
+      setMember(fetchedMember);
+      setLogs(fetchedLogs);
     };
 
-    fetchMember();
+    fetchData();
   }, [id]);
 
   if (!member) {
@@ -24,7 +29,7 @@ const MemberPage = () => {
   return (
     <section>
       <MemberDetails member={member} />
-      <WorkLog groupMembers={[member]} />
+      <WorkLog logs={logs} />
     </section>
   );
 };

@@ -1,16 +1,18 @@
 import React from "react";
 import LogList from "./LogList";
 
-const WorkLog = ({ groupMembers }) => {
+const WorkLog = ({ logs }) => {
   return (
     <>
       <h1>Arbeidslogg</h1>
       <div className="logwrapper">
-        {groupMembers.map((member) => (
-          <div key={member._id}>
-            <LogList logs={member.log} />
-          </div>
-        ))}
+        <div className="loglist-header">
+          <p>Date</p>
+          <p>Name</p>
+          <p>Change</p>
+          <p>Hours</p>
+        </div>
+        <LogList logs={logs} />
       </div>
     </>
   );

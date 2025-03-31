@@ -2,16 +2,9 @@ import React from "react";
 
 const LogList = ({ logs }) => {
   return (
-    <>
     <section className="loglist">
-      <div className="loglist-header">
-        <p>Date</p>
-        <p>Name</p>
-        <p>Change</p>
-        <p>Hours</p>
-      </div>
       <ul>
-        {logs?.map((logitem) => (
+        {logs.map((logitem) => (
           <li key={logitem._id}>
             <div>{new Date(logitem.date).toLocaleDateString()}</div>
             <div>{logitem.member}</div>
@@ -21,7 +14,6 @@ const LogList = ({ logs }) => {
         ))}
       </ul>
     </section>
-    </>
   );
 };
 

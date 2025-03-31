@@ -3,12 +3,12 @@ import React from "react";
 const LogList = ({ logs }) => {
   return (
     <>
-    <div className="loglist">
+    <section className="loglist">
       <div className="loglist-header">
-        <div>Date</div>
-        <div>Name</div>
-        <div>Change</div>
-        <div>Hours</div>
+        <p>Date</p>
+        <p>Name</p>
+        <p>Change</p>
+        <p>Hours</p>
       </div>
       <ul>
         {logs?.map((logitem) => (
@@ -20,7 +20,7 @@ const LogList = ({ logs }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
     </>
   );
 };

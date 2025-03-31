@@ -125,7 +125,6 @@ nav a.active {
   height: 250px;
   object-fit: cover;
   border-radius: 20px;
-  border-bottom: 1px solid #eee;
 }
 
 .cardcontent {
@@ -162,6 +161,7 @@ nav a.active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
+  align-items: start;
 }
 
 .details-text h2 {
@@ -175,7 +175,6 @@ nav a.active {
   color: var(--text-dark);
 }
 
-
 .imagebig {
   width: 100%;
   height: auto;
@@ -184,16 +183,16 @@ nav a.active {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.details-interests {
+.interests {
   text-align: left;
 }
 
-.details-interests h2 {
+.interests h2 {
   margin-bottom: 1rem;
   color: #2c3e50;
 }
 
-.interests {
+.interests ul {
   list-style: disc;
   margin-top: 1rem;
   padding-left: 1.5rem;

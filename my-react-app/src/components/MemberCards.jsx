@@ -6,7 +6,7 @@ const MemberCards = ({ groupMembers }) => {
   return (
     <>
     <h1>Gruppemedlemmer</h1>
-    <div className="membercards">
+    <section className="membercards">
   
       {groupMembers.map((member) => (
         <Card 
@@ -18,7 +18,7 @@ const MemberCards = ({ groupMembers }) => {
         />
       ))}
       
-    </div>
+    </section>
     </>
   );
 };
